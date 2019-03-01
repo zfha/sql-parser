@@ -1,5 +1,6 @@
 import Token from '../token';
 import Pipe from './pipe';
+import { TokenEnum } from '../token-enum';
 
 class BlankPipe implements Pipe {
   getToken(content: string, lastToken?: Token): Token {

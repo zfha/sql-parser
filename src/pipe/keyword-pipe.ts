@@ -1,6 +1,7 @@
 import { stringify } from 'querystring';
 import Token from '../token';
 import Pipe from './pipe';
+import { TokenEnum } from '../token-enum';
 
 class KeywordPipe implements Pipe {
   static keywordStr =
@@ -10,8 +11,9 @@ class KeywordPipe implements Pipe {
     this.keywords = KeywordPipe.keywordStr.split(/\s/);
   }
   getToken(content: string, lastToken?: Token): Token {
-    for (let keyword of this.keywords) {
-      let matchs = content.match(new RegExp(keyword));
+    for (let i = 0; i < this.keywords.length; i++) {
+      let keyword = this.keywords[i];
+      let matchs = content.match(new RegExp(`^${keyword}`, 'gi'));
       if (matchs) {
         return new Token(TokenEnum.KEYWORD, matchs[0], keyword);
       }

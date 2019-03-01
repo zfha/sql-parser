@@ -1,6 +1,7 @@
-enum TokenEnum {
+export enum TokenEnum {
   ANNOTAION,
   KEYWORD,
   WHITEBLANK,
-  SYMBOL
+  SYMBOL,
+  LEX
 }

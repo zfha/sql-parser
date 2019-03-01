@@ -1,7 +1,6 @@
-import { FORMERR } from 'dns';
-import { stringify } from 'querystring';
 import Token from '../token';
 import Pipe from './pipe';
+import { TokenEnum } from '../token-enum';
 
 const symbolDict = [
   { name: 'NOT_EQUAL', regex: /((!=)|(<>))/gi },

@@ -1,3 +1,4 @@
+import { TokenEnum } from './token-enum';
 class Token {
   constructor(
     //Token的类型

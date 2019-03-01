@@ -2,19 +2,15 @@ import Token from '../token';
 import Pipe from './pipe';
 import { TokenEnum } from '../token-enum';
 
-class AnnotationPipe implements Pipe {
+class LexPipe implements Pipe {
   getToken(content: string, lastToken?: Token): Token {
-    const regex = new RegExp(/^\/\*.*?(?:\*\/|$)/);
+    const regex = new RegExp(/^(\S)*/);
     const matchs = content.match(regex);
     if (matchs) {
-      return new Token(
-        TokenEnum.ANNOTAION,
-        matchs[0],
-        TokenEnum.ANNOTAION.toString()
-      );
+      return new Token(TokenEnum.LEX, matchs[0], TokenEnum.LEX.toString());
     }
     return null;
   }
 }
 
-export default AnnotationPipe;
+export default LexPipe;
